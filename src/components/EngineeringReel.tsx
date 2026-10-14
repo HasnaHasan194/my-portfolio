@@ -130,7 +130,7 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
       </div>
 
       {/* Channel Switcher Tabs (Adam Kiser clean pill navigation) */}
-      <div className="flex flex-wrap items-center gap-2 mb-8 border-b border-subtle-borders/60 pb-4">
+      <div className="flex items-center gap-2 mb-8 border-b border-subtle-borders/60 pb-4 overflow-x-auto scrollbar-none whitespace-nowrap">
         {channels.map((chan, idx) => {
           const isActive = idx === activeChannelIndex;
           return (
@@ -140,7 +140,7 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
                 setActiveChannelIndex(idx);
                 setScrubProgress(0);
               }}
-              className={`relative px-4 py-2.5 rounded-xl text-xs md:text-sm font-mono transition-all flex items-center gap-2.5 cursor-pointer ${
+              className={`relative px-4 py-2.5 rounded-xl text-xs md:text-sm font-mono transition-all flex items-center gap-2.5 cursor-pointer shrink-0 ${
                 isActive
                   ? 'text-background font-bold'
                   : 'text-secondary-text hover:text-soft-white hover:bg-secondary-background/60'
@@ -219,20 +219,20 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
               whileHover={{ scale: 1.15 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsPlaying(!isPlaying)}
-              className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-fluorescent-lime/90 backdrop-blur-md text-background flex items-center justify-center shadow-[0_0_35px_rgba(198,255,61,0.5)] pointer-events-auto transition-transform cursor-pointer relative group/play"
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-fluorescent-lime/90 backdrop-blur-md text-background flex items-center justify-center shadow-[0_0_35px_rgba(198,255,61,0.5)] pointer-events-auto transition-transform cursor-pointer relative group/play"
               title={isPlaying ? "Pause Simulator" : "Play Simulator"}
             >
               {/* Outer pulsing ripple ring */}
               <div className="absolute -inset-2 rounded-full border-2 border-fluorescent-lime/40 animate-ping pointer-events-none" />
               
               {isPlaying ? (
-                <Pause size={32} className="text-background fill-background" />
+                <Pause className="w-6 h-6 sm:w-8 sm:h-8 text-background fill-background" />
               ) : (
-                <Play size={32} className="text-background fill-background ml-1" />
+                <Play className="w-6 h-6 sm:w-8 sm:h-8 text-background fill-background ml-1" />
               )}
             </motion.button>
 
-            <span className="text-xs font-mono text-soft-white uppercase tracking-widest mt-4 bg-background/80 px-3 py-1 rounded-full border border-subtle-borders">
+            <span className="text-[10px] sm:text-xs font-mono text-soft-white uppercase tracking-widest mt-3 sm:mt-4 bg-background/80 px-2.5 sm:px-3 py-1 rounded-full border border-subtle-borders text-center max-w-[90%]">
               {isPlaying ? "SIMULATION RUNNING • CLICK TO PAUSE" : "PAUSED • CLICK TO PLAY"}
             </span>
           </div>
@@ -315,10 +315,10 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
           </div>
 
           {/* Action Button: Trigger Cinematic Case Study Opening Animation */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 w-full md:w-auto">
             <button
               onClick={() => onOpenCaseStudy(activeProject.id)}
-              className="flex items-center gap-2 px-5 py-3 rounded-xl bg-fluorescent-lime text-background font-bold text-xs uppercase tracking-wider hover:bg-electric-green transition-all shadow-[0_0_20px_rgba(198,255,61,0.35)] cursor-pointer"
+              className="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 sm:px-5 py-3 rounded-xl bg-fluorescent-lime text-background font-bold text-xs uppercase tracking-wider hover:bg-electric-green transition-all shadow-[0_0_20px_rgba(198,255,61,0.35)] cursor-pointer"
             >
               <span>Inspect Case Study</span>
               <ArrowRight size={15} />
@@ -328,7 +328,7 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
               href={activeProject.liveDemo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-3 rounded-xl bg-card-background border border-subtle-borders text-soft-white text-xs font-medium hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all"
+              className="flex items-center justify-center gap-2 px-3.5 sm:px-4 py-3 rounded-xl bg-card-background border border-subtle-borders text-soft-white text-xs font-medium hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all"
             >
               <ExternalLink size={15} />
               <span>Demo</span>

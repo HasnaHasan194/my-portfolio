@@ -82,10 +82,10 @@ Ready for full-stack impact. Let's build together!`;
             <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
           </div>
           
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 overflow-x-auto scrollbar-none">
             <button
               onClick={() => setActiveTab('system')}
-              className={`flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded-md transition-colors ${
+              className={`flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded-md transition-colors shrink-0 ${
                 activeTab === 'system'
                   ? 'bg-card-background text-fluorescent-lime border border-fluorescent-lime/30'
                   : 'text-secondary-text hover:text-soft-white'
@@ -96,7 +96,7 @@ Ready for full-stack impact. Let's build together!`;
             </button>
             <button
               onClick={() => setActiveTab('architecture')}
-              className={`flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded-md transition-colors ${
+              className={`flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded-md transition-colors shrink-0 ${
                 activeTab === 'architecture'
                   ? 'bg-card-background text-fluorescent-lime border border-fluorescent-lime/30'
                   : 'text-secondary-text hover:text-soft-white'
@@ -107,7 +107,7 @@ Ready for full-stack impact. Let's build together!`;
             </button>
             <button
               onClick={() => setActiveTab('status')}
-              className={`flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded-md transition-colors ${
+              className={`flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded-md transition-colors shrink-0 ${
                 activeTab === 'status'
                   ? 'bg-card-background text-fluorescent-lime border border-fluorescent-lime/30'
                   : 'text-secondary-text hover:text-soft-white'

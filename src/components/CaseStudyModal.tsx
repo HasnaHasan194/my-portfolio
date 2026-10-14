@@ -66,15 +66,15 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
           className="relative w-full max-w-5xl max-h-[92vh] bg-secondary-background border border-subtle-borders rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.95)] z-10 flex flex-col"
         >
           {/* Top Bar with Case Study HUD & Close Button */}
-          <div className="flex items-center justify-between px-6 py-4 border-b border-subtle-borders bg-background/95">
-            <div className="flex items-center gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-fluorescent-lime animate-ping" />
-              <span className="font-mono text-xs uppercase tracking-widest text-electric-green">
+          <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-subtle-borders bg-background/95">
+            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+              <span className="w-2.5 h-2.5 rounded-full bg-fluorescent-lime animate-ping shrink-0" />
+              <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-electric-green truncate">
                 Case Study Spec // {project.category}
               </span>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               <Link
                 to={`/projects/${project.id}`}
                 onClick={onClose}
@@ -218,7 +218,7 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
             </div>
 
             {/* Case Study Section Tabs */}
-            <div className="flex items-center gap-2 border-b border-subtle-borders/60 pb-3">
+            <div className="flex items-center gap-2 border-b border-subtle-borders/60 pb-3 overflow-x-auto scrollbar-none whitespace-nowrap">
               {[
                 { id: 'overview', label: 'Overview & Problem' },
                 { id: 'architecture', label: 'System Architecture' },
@@ -230,7 +230,7 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id as any)}
-                    className={`relative px-4 py-2 rounded-xl text-xs md:text-sm font-mono transition-all cursor-pointer ${
+                    className={`relative px-4 py-2 rounded-xl text-xs md:text-sm font-mono transition-all cursor-pointer shrink-0 ${
                       isActive
                         ? 'text-background font-bold'
                         : 'text-secondary-text hover:text-soft-white hover:bg-card-background'
