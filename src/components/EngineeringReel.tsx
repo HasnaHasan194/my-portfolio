@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Pause, ExternalLink, ArrowRight, Activity, Terminal, Globe } from 'lucide-react';
+import { Play, Pause, ExternalLink, ArrowRight, Activity, Globe } from 'lucide-react';
 import { projectsData } from '../data/projects';
 
 interface EngineeringReelProps {
