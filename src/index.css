@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-background: #08090B;
+  --color-secondary-background: #111318;
+  --color-card-background: #171A20;
+  --color-fluorescent-lime: #C6FF3D;
+  --color-electric-green: #7CFF6B;
+  --color-soft-white: #F5F5F0;
+  --color-secondary-text: #A2A6AE;
+  --color-subtle-borders: #292D34;
+  
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-soft-white);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  ::selection {
+    background-color: var(--color-electric-green);
+    color: var(--color-background);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@utility glow-text {
+  text-shadow: 0 0 10px rgba(124, 255, 107, 0.5);
+}
+
+@utility glow-border {
+  box-shadow: 0 0 15px rgba(198, 255, 61, 0.2);
+}
+
+@utility glass-card {
+  background-color: var(--color-card-background);
+  border: 1px solid var(--color-subtle-borders);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-subtle-borders);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-secondary-text);
+}
