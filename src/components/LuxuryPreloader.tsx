@@ -26,7 +26,7 @@ export default function LuxuryPreloader({ onComplete }: LuxuryPreloaderProps) {
             setIsLoaded(true);
             sessionStorage.setItem('hasna_portfolio_loaded', 'true');
             if (onComplete) onComplete();
-          }, 2350);
+          }, 1350);
           return 100;
         }
         // Luxury non-linear loading progression

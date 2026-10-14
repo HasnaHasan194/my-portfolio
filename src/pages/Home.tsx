@@ -109,7 +109,7 @@ export default function Home({ initialSection }: HomeProps) {
         <motion.div
           animate={{ y: [0, -12, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-background/60 backdrop-blur-md border border-subtle-borders text-[11px] font-mono text-secondary-text absolute top-28 right-24 pointer-events-none z-10"
+          className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-background/60 backdrop-blur-md border border-subtle-borders text-[11px] font-mono text-secondary-text absolute top-48 right-8 xl:right-16 pointer-events-none z-10"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-fluorescent-lime animate-ping" />
           <span>Clean Architecture & SOLID</span>
@@ -141,7 +141,7 @@ export default function Home({ initialSection }: HomeProps) {
             <span className="text-subtle-borders">/</span>
             <span>Docker • AWS EC2</span>
             <span className="text-subtle-borders">/</span>
-            <span className="text-fluorescent-lime">Available for 2026 Roles</span>
+            <span className="text-fluorescent-lime whitespace-nowrap">Available for 2026 Roles</span>
           </div>
         </motion.div>
 
