@@ -222,8 +222,8 @@ export default function Home({ initialSection }: HomeProps) {
               </button>
               
               <a 
-                href="/HasnaResume.pdf" 
-                download 
+                href="/Hasna_Hasan_Resume.pdf" 
+                download="Hasna_Hasan_Resume.pdf" 
                 className="flex items-center gap-2 px-6 py-3 bg-secondary-background border border-subtle-borders text-soft-white font-medium rounded-xl hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all"
               >
                 <Download size={18} />

@@ -80,7 +80,7 @@ export default function About({ isSection = false }: AboutProps) {
               </a>
             </div>
             <div className="mt-6 pt-6 border-t border-subtle-borders">
-              <a href="/HasnaResume.pdf" download className="flex items-center justify-center gap-2 w-full py-3 bg-secondary-background border border-subtle-borders text-soft-white font-medium rounded-lg hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all">
+              <a href="/Hasna_Hasan_Resume.pdf" download="Hasna_Hasan_Resume.pdf" className="flex items-center justify-center gap-2 w-full py-3 bg-secondary-background border border-subtle-borders text-soft-white font-medium rounded-lg hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all">
                 <Download size={18} />
                 Download Resume
               </a>
