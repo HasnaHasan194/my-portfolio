@@ -45,7 +45,7 @@ export default function About({ isSection = false }: AboutProps) {
           <motion.div variants={itemVariants} className="relative aspect-square w-full max-w-md mx-auto lg:mx-0">
             <div className="absolute inset-0 border border-fluorescent-lime/20 rounded-2xl transform translate-x-3 translate-y-3 -z-10 glow-border" />
             <img 
-              src="/portfolioimage.jpg" 
+              src="/portfolioprofile.jpeg" 
               alt="Hasna Hasan" 
               className="w-full h-full object-cover rounded-2xl glass-card"
               onError={(e) => {

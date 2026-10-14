@@ -11,6 +11,8 @@ export default function Contact({ isSection = false }: ContactProps) {
   const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const email = "hasnahasnahasan194@gmail.com";
 
@@ -28,7 +30,7 @@ export default function Contact({ isSection = false }: ContactProps) {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -43,10 +45,43 @@ export default function Contact({ isSection = false }: ContactProps) {
       return;
     }
 
-    // Since there's no backend, fallback to mailto
-    const subject = encodeURIComponent(formData.subject || `New message from ${formData.name}`);
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${email}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || `New message from ${formData.name}`,
+          message: formData.message,
+          _replyto: formData.email,
+          _subject: formData.subject || `New message from ${formData.name} via Portfolio`,
+          _captcha: "false"
+        })
+      });
+
+      const data = await response.json();
+      if (response.ok || data.success === "true" || data.message?.includes("Activation")) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch {
+      // Fallback: open default mail client
+      const subject = encodeURIComponent(formData.subject || `New message from ${formData.name}`);
+      const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+      setSubmitStatus('success');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const itemVariants = {
@@ -145,7 +180,7 @@ export default function Contact({ isSection = false }: ContactProps) {
                 value={formData.name} 
                 onChange={handleInputChange} 
                 className={`bg-background border ${errors.name ? 'border-red-500' : 'border-subtle-borders'} rounded-xl p-4 text-soft-white focus:outline-none focus:border-fluorescent-lime transition-colors`}
-                placeholder="John Doe"
+                placeholder="Enter your name"
               />
               {errors.name && <span className="text-xs text-red-500">{errors.name}</span>}
             </div>
@@ -159,7 +194,7 @@ export default function Contact({ isSection = false }: ContactProps) {
                 value={formData.email} 
                 onChange={handleInputChange} 
                 className={`bg-background border ${errors.email ? 'border-red-500' : 'border-subtle-borders'} rounded-xl p-4 text-soft-white focus:outline-none focus:border-fluorescent-lime transition-colors`}
-                placeholder="john@example.com"
+                placeholder="Enter your email"
               />
               {errors.email && <span className="text-xs text-red-500">{errors.email}</span>}
             </div>
@@ -193,13 +228,24 @@ export default function Contact({ isSection = false }: ContactProps) {
 
             <button 
               type="submit" 
-              className="mt-4 flex items-center justify-center gap-2 w-full py-4 bg-fluorescent-lime text-background font-bold rounded-xl hover:bg-electric-green transition-all shadow-[0_0_15px_rgba(198,255,61,0.2)] hover:shadow-[0_0_25px_rgba(124,255,107,0.4)]"
+              disabled={isSubmitting}
+              className="mt-4 flex items-center justify-center gap-2 w-full py-4 bg-fluorescent-lime text-background font-bold rounded-xl hover:bg-electric-green transition-all shadow-[0_0_15px_rgba(198,255,61,0.2)] hover:shadow-[0_0_25px_rgba(124,255,107,0.4)] disabled:opacity-75 disabled:cursor-not-allowed cursor-pointer"
             >
-              Let's Connect <Send size={18} />
+              {isSubmitting ? (
+                <span>Sending Message...</span>
+              ) : (
+                <>Let's Connect <Send size={18} /></>
+              )}
             </button>
             
+            {submitStatus === 'success' && (
+              <p className="text-sm font-medium text-center text-electric-green bg-electric-green/10 border border-electric-green/20 py-2.5 px-4 rounded-xl mt-2">
+                Thank you! Your message has been sent to hasnahasnahasan194@gmail.com.
+              </p>
+            )}
+
             <p className="text-xs text-center text-secondary-text mt-2">
-              Since this portfolio has no active backend, submitting will open your default email client.
+              Messages will be delivered directly to hasnahasnahasan194@gmail.com.
             </p>
           </form>
         </motion.div>

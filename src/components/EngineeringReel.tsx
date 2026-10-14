@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Pause, ExternalLink, ArrowRight, Activity, Terminal } from 'lucide-react';
+import { Play, Pause, ExternalLink, ArrowRight, Activity, Terminal, Globe } from 'lucide-react';
 import { projectsData } from '../data/projects';
 
 interface EngineeringReelProps {
@@ -11,7 +11,6 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
   const [isPlaying, setIsPlaying] = useState(true);
   const [activeChannelIndex, setActiveChannelIndex] = useState(0);
   const [scrubProgress, setScrubProgress] = useState(15);
-  const [liveEvents, setLiveEvents] = useState<string[]>([]);
 
   const activeProject = projectsData[activeChannelIndex] || projectsData[0];
 
@@ -32,45 +31,85 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
     {
       id: 'readhaven',
       label: 'ReadHaven',
-      tag: 'Multi-Vendor E-Commerce & Stripe',
-      metric: '99.98% Idempotency',
+      tag: 'Full-Stack E-Commerce & Razorpay',
+      metric: 'MVC Architecture',
       events: [
-        '[STRIPE_API] PaymentIntent confirmed: pi_3M190xK',
-        '[WEBHOOK] charge.succeeded verified with HMAC-SHA256',
-        '[INVENTORY] Locked 2 units for SKU_BK_9921',
-        '[EMAIL] Invoice PDF generated via Nodemailer',
-        '[ORDER] Transitioned status: PENDING -> DISPATCHED'
+        '[AUTH] User session validated via JWT',
+        '[CATALOG] Filtered books by category: Fiction',
+        '[CART] Added item SKU_BK_9921 with coupon applied',
+        '[RAZORPAY] Payment order created: order_rp_8812',
+        '[EMAIL] Invoice PDF generated via Nodemailer'
       ]
     },
     {
-      id: 'taskpilot',
-      label: 'TaskPilot',
-      tag: 'NestJS RBAC & Event-Driven Tasks',
-      metric: '100% Type-Safe',
+      id: 'flavor-forge',
+      label: 'Flavor Forge',
+      tag: 'Recipe Discovery & PostgreSQL',
+      metric: 'Relational Database',
       events: [
-        '[AUTH_GUARD] Bearer JWT verified for admin_dev',
-        '[RBAC_POLICY] Permission granted: TASKS_MUTATE_BULK',
-        '[POSTGRES] Executed query in 8ms: SELECT * FROM tasks',
-        '[AUDIT_LOG] Event logged with correlation_id #9924',
-        '[EVENT_BUS] TaskAssignedEvent published to worker'
+        '[POSTGRES] Connected to recipe_db cluster',
+        '[RECIPE_QUERY] Searched culinary database for ingredients',
+        '[AUTH] Verified token-based user session',
+        '[CACHE] Query results cached for responsive UX',
+        '[FAVORITES] Saved recipe to user favorites in PostgreSQL'
       ]
     },
     {
-      id: 'snapgram',
-      label: 'SnapGram',
-      tag: 'Real-Time Social Media & Cloudinary',
-      metric: 'Sub-second CDN',
+      id: 'zaplink',
+      label: 'ZapLink',
+      tag: 'Authenticated URL Shortener & NestJS',
+      metric: 'Modular NestJS',
       events: [
-        '[CLOUDINARY] Image uploaded & optimized: 1.2MB -> 180KB',
-        '[SOCKET_IO] PostLikeEvent emitted to followers (1.4k)',
-        '[CACHE] Feed pagination cached with Redis TTL 60s',
-        '[DB_SYNC] Incremented like_count with atomic operator',
-        '[PUSH] Client notification sent via Web Push API'
+        '[AUTH_GUARD] Bearer JWT verified for user',
+        '[NESTJS_PIPE] Validated destination URL schema',
+        '[URL_ENGINE] Generated short hash: zap.link/a98f2',
+        '[DATABASE] Stored URL mapping with user correlation',
+        '[REDIRECT] Handled 302 permanent redirect in 8ms'
       ]
     }
   ];
 
   const currentChannel = channels[activeChannelIndex];
+
+  // Project-related data pipelines for clean micro-architecture animation
+  const projectPipelines: Record<string, {
+    title: string;
+    flowName: string;
+    nodes: [string, string, string];
+    labels: [string, string, string];
+    latency: string;
+  }> = {
+    carevoyage: {
+      title: "REAL-TIME DISPATCH FLOW",
+      flowName: "Bi-Directional WebSockets",
+      nodes: ["Client UI", "Socket.IO Gateway", "Redis & DB"],
+      labels: ["React", "Events", "State Sync"],
+      latency: "14ms PTT"
+    },
+    readhaven: {
+      title: "CHECKOUT PIPELINE",
+      flowName: "MVC Transaction Stream",
+      nodes: ["Storefront", "Express API", "Razorpay Gateway"],
+      labels: ["Catalog", "Coupon Engine", "Payment Hold"],
+      latency: "28ms Gateway"
+    },
+    'flavor-forge': {
+      title: "RECIPE DISCOVERY FLOW",
+      flowName: "Relational Query Pipeline",
+      nodes: ["Recipe Client", "REST Controller", "PostgreSQL DB"],
+      labels: ["Search", "Nutrition Parser", "Saved Records"],
+      latency: "18ms Query"
+    },
+    zaplink: {
+      title: "URL REDIRECT PIPELINE",
+      flowName: "NestJS Modular Engine",
+      nodes: ["Short Link", "Auth Guard", "Redirect Engine"],
+      labels: ["HTTP Request", "JWT Validation", "302 Fast Route"],
+      latency: "8ms Fast Path"
+    }
+  };
+
+  const currentPipeline = projectPipelines[currentChannel.id] || projectPipelines.carevoyage;
 
   // Auto-advance scrubber when playing
   useEffect(() => {
@@ -88,17 +127,6 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
 
     return () => clearInterval(interval);
   }, [isPlaying, channels.length]);
-
-  // Feed simulated live events into telemetry box
-  useEffect(() => {
-    setLiveEvents(currentChannel.events.slice(0, 3));
-    const eventInterval = setInterval(() => {
-      const nextEvent = currentChannel.events[Math.floor(Math.random() * currentChannel.events.length)];
-      setLiveEvents((prev) => [nextEvent, prev[0], prev[1]].filter(Boolean));
-    }, 2400);
-
-    return () => clearInterval(eventInterval);
-  }, [activeChannelIndex]);
 
   return (
     <section className="py-20 md:py-28 px-6 md:px-12 max-w-7xl mx-auto relative overflow-hidden border-t border-subtle-borders/40">
@@ -237,50 +265,111 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
             </span>
           </div>
 
-          {/* Floating Simulated Live Event Stream HUD in Bottom Left */}
-          <div className="absolute bottom-6 left-6 z-20 max-w-md hidden sm:block">
-            <div className="p-3.5 rounded-2xl bg-secondary-background/85 backdrop-blur-md border border-subtle-borders text-xs font-mono space-y-1.5 shadow-2xl">
-              <div className="flex items-center justify-between text-[10px] text-secondary-text pb-1 border-b border-subtle-borders/60">
-                <span className="flex items-center gap-1.5 text-fluorescent-lime">
-                  <Terminal size={12} />
-                  <span>RUNTIME EVENT BUS</span>
+          {/* Project-Related Micro-Architecture Pipeline Animation */}
+          <div className="absolute bottom-6 left-6 z-20 max-w-sm hidden sm:block">
+            <div className="p-3.5 rounded-2xl bg-secondary-background/90 backdrop-blur-md border border-subtle-borders text-xs font-mono shadow-2xl space-y-2.5">
+              {/* Header */}
+              <div className="flex items-center justify-between text-[10px] pb-1.5 border-b border-subtle-borders/60 text-secondary-text">
+                <span className="flex items-center gap-1.5 text-fluorescent-lime font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-fluorescent-lime animate-ping" />
+                  <span>{currentPipeline.title}</span>
                 </span>
-                <span>STATUS: 200 OK</span>
+                <span className="text-electric-green font-medium">{currentPipeline.latency}</span>
               </div>
-              <AnimatePresence mode="popLayout">
-                {liveEvents.map((evt, i) => (
+
+              {/* Animated 3-Stage Architecture Pipeline */}
+              <div className="flex items-center justify-between gap-1 relative py-0.5">
+                {/* Node 1 */}
+                <div className="flex flex-col items-center">
+                  <div className="px-2 py-1 rounded-md bg-card-background border border-subtle-borders text-[10px] text-soft-white font-medium flex items-center gap-1 shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-fluorescent-lime" />
+                    <span>{currentPipeline.nodes[0]}</span>
+                  </div>
+                  <span className="text-[9px] text-secondary-text mt-1">{currentPipeline.labels[0]}</span>
+                </div>
+
+                {/* Animated Packet Stream 1 */}
+                <div className="flex-1 h-[2px] bg-subtle-borders/60 relative mx-1.5 rounded-full overflow-hidden">
                   <motion.div
-                    key={evt + i}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0 }}
-                    className="text-soft-white/90 text-[11px] truncate"
-                  >
-                    <span className="text-electric-green">{'>'}</span> {evt}
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+                    animate={{ x: isPlaying ? ['-100%', '200%'] : '50%' }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="w-5 h-full bg-gradient-to-r from-transparent via-fluorescent-lime to-transparent shadow-[0_0_8px_#C6FF3D]"
+                  />
+                </div>
+
+                {/* Node 2 */}
+                <div className="flex flex-col items-center">
+                  <div className="px-2 py-1 rounded-md bg-card-background border border-fluorescent-lime/30 text-[10px] text-fluorescent-lime font-medium flex items-center gap-1 shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-electric-green" />
+                    <span>{currentPipeline.nodes[1]}</span>
+                  </div>
+                  <span className="text-[9px] text-secondary-text mt-1">{currentPipeline.labels[1]}</span>
+                </div>
+
+                {/* Animated Packet Stream 2 */}
+                <div className="flex-1 h-[2px] bg-subtle-borders/60 relative mx-1.5 rounded-full overflow-hidden">
+                  <motion.div
+                    animate={{ x: isPlaying ? ['-100%', '200%'] : '50%' }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "linear",
+                      delay: 0.75,
+                    }}
+                    className="w-5 h-full bg-gradient-to-r from-transparent via-fluorescent-lime to-transparent shadow-[0_0_8px_#C6FF3D]"
+                  />
+                </div>
+
+                {/* Node 3 */}
+                <div className="flex flex-col items-center">
+                  <div className="px-2 py-1 rounded-md bg-card-background border border-subtle-borders text-[10px] text-soft-white font-medium flex items-center gap-1 shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-electric-green" />
+                    <span>{currentPipeline.nodes[2]}</span>
+                  </div>
+                  <span className="text-[9px] text-secondary-text mt-1">{currentPipeline.labels[2]}</span>
+                </div>
+              </div>
+
+              {/* Sub-label describing the active project flow */}
+              <div className="text-[10px] text-secondary-text pt-0.5 border-t border-subtle-borders/40 flex items-center justify-between">
+                <span>Protocol: {currentPipeline.flowName}</span>
+                <span className="text-electric-green font-medium">200 OK</span>
+              </div>
             </div>
           </div>
 
-          {/* Audio / Frequency Spectrum Visualizer Bars in Bottom Right */}
-          <div className="absolute bottom-6 right-6 z-20 hidden md:flex items-end gap-1 p-3 rounded-2xl bg-secondary-background/85 backdrop-blur-md border border-subtle-borders">
-            {[12, 28, 44, 18, 36, 52, 24, 40, 16, 48, 32, 20].map((h, i) => (
-              <motion.div
-                key={i}
-                animate={{
-                  height: isPlaying ? [10, h, 8, h * 0.7, 12] : 8,
-                }}
-                transition={{
-                  duration: 0.8 + (i % 4) * 0.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="w-1.5 rounded-full bg-fluorescent-lime/80"
-                style={{ height: h }}
-              />
-            ))}
-            <span className="font-mono text-[10px] text-secondary-text ml-2">TELEMETRY</span>
+          {/* Simple Project Tech & Live Deployment Status Badge */}
+          <div className="absolute bottom-6 right-6 z-20 hidden md:flex items-center gap-3 p-3.5 rounded-2xl bg-secondary-background/90 backdrop-blur-md border border-subtle-borders shadow-2xl">
+            {/* Simple Animated Live Beacon */}
+            <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-fluorescent-lime/10 border border-fluorescent-lime/30 text-fluorescent-lime shrink-0">
+              <Globe size={18} />
+              <span className="absolute -top-0.5 -right-0.5 flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-fluorescent-lime opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-fluorescent-lime" />
+              </span>
+            </div>
+
+            {/* Project Stack & Details */}
+            <div className="flex flex-col font-mono text-left select-none">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-semibold text-fluorescent-lime uppercase tracking-wider">
+                  {activeProject.name}
+                </span>
+                <span className="text-[9px] text-electric-green bg-electric-green/10 border border-electric-green/20 px-1.5 py-0.5 rounded font-medium">
+                  LIVE APP
+                </span>
+              </div>
+              <div className="text-[11px] text-soft-white font-medium mt-1">
+                {activeProject.technologies.slice(0, 3).join(' • ')}
+              </div>
+              <div className="text-[10px] text-secondary-text mt-0.5 truncate max-w-[200px]">
+                {activeProject.category}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -294,7 +383,7 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
                 <span className="text-soft-white font-medium">{activeProject.name}</span>
                 <span>// Architecture Breakdown</span>
               </span>
-              <span>00:{Math.floor(scrubProgress).toString().padStart(2, '0')} / 01:20</span>
+              <span>STREAM: {Math.floor(scrubProgress)}% // 01:20</span>
             </div>
 
             {/* Interactive Timeline Bar */}

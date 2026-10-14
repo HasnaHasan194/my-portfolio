@@ -19,19 +19,23 @@ const skillCategories = [
   },
   {
     title: "State & Data Fetching",
-    skills: ["Redux Toolkit", "React Query"]
+    skills: ["Redux Toolkit", "React Query", "Context API"]
   },
   {
     title: "DevOps & Infrastructure",
-    skills: ["Docker", "AWS EC2", "Nginx", "Git", "GitHub", "GitHub Actions (CI/CD)", "Vercel", "Render"]
+    skills: ["AWS EC2", "Docker", "Nginx", "GitHub Actions (CI/CD)", "Render", "Vercel"]
   },
   {
     title: "Payments & Integrations",
-    skills: ["Stripe", "Razorpay", "Spoonacular API", "WebSockets"]
+    skills: ["Stripe", "Razorpay", "WebSockets", "Cloudinary"]
   },
   {
-    title: "Concepts & Tools",
-    skills: ["MVC Architecture", "Clean Architecture", "SOLID Principles", "Postman", "Figma"]
+    title: "Architecture & Concepts",
+    skills: ["Clean Architecture", "MVC Architecture", "SOLID Principles", "RESTful Design"]
+  },
+  {
+    title: "Developer Tools",
+    skills: ["VS Code", "Postman", "Figma", "Git", "GitHub", "Chrome DevTools"]
   }
 ];
 
@@ -86,7 +90,7 @@ export default function Skills({ isSection = false }: SkillsProps) {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       >
         {skillCategories.map((category, idx) => (
           <motion.div 
