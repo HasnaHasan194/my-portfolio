@@ -53,7 +53,7 @@ export default function FloatingNav() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 30 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-6 right-6 md:right-1/2 md:translate-x-1/2 z-40 flex items-center gap-1 p-1.5 rounded-full bg-card-background/90 backdrop-blur-xl border border-subtle-borders shadow-2xl"
+          className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 md:right-1/2 md:translate-x-1/2 z-40 flex items-center gap-1 p-1.5 rounded-full bg-card-background/90 backdrop-blur-xl border border-subtle-borders shadow-2xl"
         >
           {/* Quick Section Links (on md+ screens) */}
           <div className="hidden sm:flex items-center gap-1 px-1">

@@ -129,7 +129,7 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
   }, [isPlaying, channels.length]);
 
   return (
-    <section className="py-20 md:py-28 px-6 md:px-12 max-w-7xl mx-auto relative overflow-hidden border-t border-subtle-borders/40">
+    <section className="py-20 md:py-28 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto relative overflow-hidden border-t border-subtle-borders/40">
       {/* Background glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-fluorescent-lime/5 rounded-full blur-[160px] pointer-events-none -z-10" />
 
@@ -137,13 +137,13 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
         <div>
           <div className="flex items-center gap-3 mb-3">
-            <span className="w-2 h-2 rounded-full bg-fluorescent-lime animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-fluorescent-lime animate-pulse shrink-0" />
             <span className="text-xs font-mono font-semibold text-electric-green uppercase tracking-widest">
               Interactive Systems Showcase
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-soft-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading text-soft-white tracking-tight">
             Engineering <span className="text-fluorescent-lime">Showreel.</span>
           </h2>
         </div>
@@ -194,7 +194,7 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
       </div>
 
       {/* Interactive Media Viewport Frame with Adam Kiser Corner Brackets */}
-      <div className="glass-card rounded-3xl border border-subtle-borders/90 overflow-hidden relative shadow-[0_0_60px_rgba(0,0,0,0.9)] group">
+      <div className="glass-card rounded-2xl sm:rounded-3xl border border-subtle-borders/90 overflow-hidden relative shadow-[0_0_60px_rgba(0,0,0,0.9)] group">
         {/* Architectural Framing Crosshairs */}
         <span className="absolute top-3 left-3 font-mono text-xs text-fluorescent-lime z-30 pointer-events-none">+</span>
         <span className="absolute top-3 right-3 font-mono text-xs text-fluorescent-lime z-30 pointer-events-none">+</span>
@@ -202,23 +202,23 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
         <span className="absolute bottom-3 right-3 font-mono text-xs text-fluorescent-lime z-30 pointer-events-none">+</span>
 
         {/* Top Telemetry Header Bar */}
-        <div className="flex items-center justify-between px-6 py-3.5 bg-background/90 border-b border-subtle-borders text-xs font-mono text-secondary-text">
-          <div className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
-            <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
-            <span className="w-2.5 h-2.5 rounded-full bg-fluorescent-lime/80 inline-block" />
-            <span className="text-soft-white font-medium ml-2">channel://{currentChannel.id}.runtime</span>
+        <div className="flex items-center justify-between px-3 sm:px-6 py-2.5 sm:py-3.5 bg-background/90 border-b border-subtle-borders text-[11px] sm:text-xs font-mono text-secondary-text">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-red-500/80 shrink-0 inline-block" />
+            <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-yellow-500/80 shrink-0 inline-block" />
+            <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-fluorescent-lime/80 shrink-0 inline-block" />
+            <span className="text-soft-white font-medium ml-1 sm:ml-2 truncate">channel://{currentChannel.id}.runtime</span>
           </div>
 
-          <div className="flex items-center gap-4">
-            <span className="text-fluorescent-lime">{currentChannel.tag}</span>
-            <span className="text-subtle-borders">|</span>
-            <span className="text-soft-white">{Math.floor(scrubProgress)}% STREAM</span>
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+            <span className="text-fluorescent-lime hidden sm:inline">{currentChannel.tag}</span>
+            <span className="text-subtle-borders hidden sm:inline">|</span>
+            <span className="text-soft-white font-medium">{Math.floor(scrubProgress)}% STREAM</span>
           </div>
         </div>
 
         {/* Viewport Core Showcase with Animated Shutter and Light Sweep */}
-        <div className="relative aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden bg-background">
+        <div className="relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] min-h-[260px] w-full overflow-hidden bg-background">
           {/* Animated Background Preview Image */}
           <AnimatePresence mode="wait">
             <motion.img
@@ -242,25 +242,25 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
           <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-transparent to-background/90" />
 
           {/* Center Play/Pause Magnetic Button (Adam Kiser Reel Signature) */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none">
+          <div className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none p-4">
             <motion.button
               whileHover={{ scale: 1.15 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsPlaying(!isPlaying)}
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-fluorescent-lime/90 backdrop-blur-md text-background flex items-center justify-center shadow-[0_0_35px_rgba(198,255,61,0.5)] pointer-events-auto transition-transform cursor-pointer relative group/play"
+              className="w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-fluorescent-lime/90 backdrop-blur-md text-background flex items-center justify-center shadow-[0_0_35px_rgba(198,255,61,0.5)] pointer-events-auto transition-transform cursor-pointer relative group/play"
               title={isPlaying ? "Pause Simulator" : "Play Simulator"}
             >
               {/* Outer pulsing ripple ring */}
               <div className="absolute -inset-2 rounded-full border-2 border-fluorescent-lime/40 animate-ping pointer-events-none" />
               
               {isPlaying ? (
-                <Pause className="w-6 h-6 sm:w-8 sm:h-8 text-background fill-background" />
+                <Pause className="w-5 h-5 sm:w-8 sm:h-8 text-background fill-background" />
               ) : (
-                <Play className="w-6 h-6 sm:w-8 sm:h-8 text-background fill-background ml-1" />
+                <Play className="w-5 h-5 sm:w-8 sm:h-8 text-background fill-background ml-0.5 sm:ml-1" />
               )}
             </motion.button>
 
-            <span className="text-[10px] sm:text-xs font-mono text-soft-white uppercase tracking-widest mt-3 sm:mt-4 bg-background/80 px-2.5 sm:px-3 py-1 rounded-full border border-subtle-borders text-center max-w-[90%]">
+            <span className="text-[10px] sm:text-xs font-mono text-soft-white uppercase tracking-wider sm:tracking-widest mt-3 sm:mt-4 bg-background/80 px-2.5 sm:px-3 py-1 rounded-full border border-subtle-borders text-center max-w-[90%]">
               {isPlaying ? "SIMULATION RUNNING • CLICK TO PAUSE" : "PAUSED • CLICK TO PLAY"}
             </span>
           </div>
@@ -374,16 +374,16 @@ export default function EngineeringReel({ onOpenCaseStudy }: EngineeringReelProp
         </div>
 
         {/* Bottom Interactive Playback Scrubber & Action Controls */}
-        <div className="p-5 md:p-6 bg-secondary-background/95 border-t border-subtle-borders flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="p-4 sm:p-5 md:p-6 bg-secondary-background/95 border-t border-subtle-borders flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
           {/* Scrubber Bar */}
-          <div className="flex-1">
-            <div className="flex items-center justify-between text-xs font-mono text-secondary-text mb-2">
-              <span className="flex items-center gap-2">
-                <Activity size={14} className="text-fluorescent-lime" />
+          <div className="flex-1 w-full">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs font-mono text-secondary-text mb-2 gap-1 sm:gap-0">
+              <span className="flex items-center gap-2 truncate">
+                <Activity size={14} className="text-fluorescent-lime shrink-0" />
                 <span className="text-soft-white font-medium">{activeProject.name}</span>
-                <span>// Architecture Breakdown</span>
+                <span className="hidden sm:inline">// Architecture Breakdown</span>
               </span>
-              <span>STREAM: {Math.floor(scrubProgress)}% // 01:20</span>
+              <span className="shrink-0 text-[11px] sm:text-xs text-secondary-text/80">STREAM: {Math.floor(scrubProgress)}% // 01:20</span>
             </div>
 
             {/* Interactive Timeline Bar */}

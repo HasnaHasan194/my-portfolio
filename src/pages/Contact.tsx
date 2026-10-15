@@ -92,56 +92,56 @@ export default function Contact({ isSection = false }: ContactProps) {
   return (
     <section 
       id="contact"
-      className={isSection ? "py-20 md:py-28 px-6 md:px-12 max-w-7xl mx-auto scroll-mt-12 border-t border-subtle-borders/40 relative" : "pt-28 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen"}
+      className={isSection ? "py-20 md:py-28 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto scroll-mt-12 border-t border-subtle-borders/40 relative" : "pt-28 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto min-h-screen"}
     >
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-2 h-2 rounded-full bg-fluorescent-lime animate-pulse" />
+        <div className="w-2 h-2 rounded-full bg-fluorescent-lime animate-pulse shrink-0" />
         <span className="text-xs font-semibold text-electric-green uppercase tracking-widest">Get In Touch & Collaborate</span>
       </div>
       <motion.div
         initial="hidden"
         animate="visible"
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-        className="grid grid-cols-1 lg:grid-cols-2 gap-16"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16"
       >
         {/* Left Side: Contact Info */}
-        <motion.div variants={itemVariants} className="flex flex-col gap-10">
+        <motion.div variants={itemVariants} className="flex flex-col gap-8 sm:gap-10">
           <div>
-            <h1 className="text-4xl md:text-5xl font-bold font-heading mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading mb-4 sm:mb-6 leading-tight">
               Have a Project or <span className="text-fluorescent-lime glow-text block">Opportunity in Mind?</span>
             </h1>
-            <p className="text-lg text-secondary-text leading-relaxed">
+            <p className="text-base sm:text-lg text-secondary-text leading-relaxed">
               I'm open to discussing full-stack development opportunities, interesting projects, and collaborations. Let's connect.
             </p>
           </div>
 
-          <div className="flex flex-col gap-6">
-            <div className="flex items-center gap-4 p-6 glass-card rounded-2xl group">
-              <div className="p-4 bg-secondary-background rounded-full text-fluorescent-lime border border-subtle-borders group-hover:border-fluorescent-lime transition-colors">
-                <Mail size={24} />
+          <div className="flex flex-col gap-4 sm:gap-6">
+            <div className="flex items-center gap-3.5 sm:gap-4 p-4 sm:p-6 glass-card rounded-2xl group min-w-0">
+              <div className="p-3 sm:p-4 bg-secondary-background rounded-full text-fluorescent-lime border border-subtle-borders group-hover:border-fluorescent-lime transition-colors shrink-0">
+                <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <div className="flex-grow">
-                <span className="text-sm uppercase tracking-widest text-secondary-text block mb-1">Email</span>
-                <a href={`mailto:${email}`} className="text-soft-white font-medium text-lg hover:text-fluorescent-lime transition-colors">
+              <div className="flex-grow min-w-0">
+                <span className="text-xs sm:text-sm uppercase tracking-widest text-secondary-text block mb-1">Email</span>
+                <a href={`mailto:${email}`} className="text-soft-white font-medium text-xs sm:text-base md:text-lg hover:text-fluorescent-lime transition-colors break-all">
                   {email}
                 </a>
               </div>
               <button 
                 onClick={handleCopyEmail}
-                className="p-2 text-secondary-text hover:text-soft-white transition-colors ml-auto"
+                className="p-1.5 sm:p-2 text-secondary-text hover:text-soft-white transition-colors shrink-0 cursor-pointer"
                 title="Copy Email"
               >
-                {copied ? <Check size={20} className="text-fluorescent-lime" /> : <Copy size={20} />}
+                {copied ? <Check size={18} className="text-fluorescent-lime" /> : <Copy size={18} />}
               </button>
             </div>
 
-            <div className="flex items-center gap-4 p-6 glass-card rounded-2xl group">
-              <div className="p-4 bg-secondary-background rounded-full text-fluorescent-lime border border-subtle-borders group-hover:border-fluorescent-lime transition-colors">
-                <Phone size={24} />
+            <div className="flex items-center gap-3.5 sm:gap-4 p-4 sm:p-6 glass-card rounded-2xl group min-w-0">
+              <div className="p-3 sm:p-4 bg-secondary-background rounded-full text-fluorescent-lime border border-subtle-borders group-hover:border-fluorescent-lime transition-colors shrink-0">
+                <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <div>
-                <span className="text-sm uppercase tracking-widest text-secondary-text block mb-1">Phone</span>
-                <a href="tel:+919207478990" className="text-soft-white font-medium text-lg hover:text-fluorescent-lime transition-colors">
+              <div className="min-w-0">
+                <span className="text-xs sm:text-sm uppercase tracking-widest text-secondary-text block mb-1">Phone</span>
+                <a href="tel:+919207478990" className="text-soft-white font-medium text-sm sm:text-base md:text-lg hover:text-fluorescent-lime transition-colors">
                   +91 92074 78990
                 </a>
               </div>
@@ -149,16 +149,16 @@ export default function Contact({ isSection = false }: ContactProps) {
           </div>
 
           <div>
-            <span className="text-sm uppercase tracking-widest text-secondary-text block mb-4">Social Profiles</span>
-            <div className="flex gap-4">
-              <a href="https://www.linkedin.com/in/hasna-hasan-6b3951330/" target="_blank" rel="noopener noreferrer" className="p-4 glass-card rounded-xl text-secondary-text hover:text-fluorescent-lime hover:border-fluorescent-lime transition-all">
-                <FaLinkedin size={24} />
+            <span className="text-xs sm:text-sm uppercase tracking-widest text-secondary-text block mb-4">Social Profiles</span>
+            <div className="flex flex-wrap gap-3 sm:gap-4">
+              <a href="https://www.linkedin.com/in/hasna-hasan-6b3951330/" target="_blank" rel="noopener noreferrer" className="p-3.5 sm:p-4 glass-card rounded-xl text-secondary-text hover:text-fluorescent-lime hover:border-fluorescent-lime transition-all">
+                <FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
-              <a href="https://github.com/HasnaHasan194" target="_blank" rel="noopener noreferrer" className="p-4 glass-card rounded-xl text-secondary-text hover:text-fluorescent-lime hover:border-fluorescent-lime transition-all">
-                <FaGithub size={24} />
+              <a href="https://github.com/HasnaHasan194" target="_blank" rel="noopener noreferrer" className="p-3.5 sm:p-4 glass-card rounded-xl text-secondary-text hover:text-fluorescent-lime hover:border-fluorescent-lime transition-all">
+                <FaGithub className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
-              <a href="https://www.instagram.com/hasna._hasan/" target="_blank" rel="noopener noreferrer" className="p-4 glass-card rounded-xl text-secondary-text hover:text-fluorescent-lime hover:border-fluorescent-lime transition-all">
-                <FaInstagram size={24} />
+              <a href="https://www.instagram.com/hasna._hasan/" target="_blank" rel="noopener noreferrer" className="p-3.5 sm:p-4 glass-card rounded-xl text-secondary-text hover:text-fluorescent-lime hover:border-fluorescent-lime transition-all">
+                <FaInstagram className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
             </div>
           </div>
@@ -166,7 +166,7 @@ export default function Contact({ isSection = false }: ContactProps) {
 
         {/* Right Side: Contact Form */}
         <motion.div variants={itemVariants}>
-          <form onSubmit={handleSubmit} className="glass-card p-8 md:p-10 rounded-3xl flex flex-col gap-6 relative overflow-hidden">
+          <form onSubmit={handleSubmit} className="glass-card p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl flex flex-col gap-5 sm:gap-6 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-fluorescent-lime/5 rounded-full blur-[80px] pointer-events-none" />
             
             <h3 className="text-2xl font-heading font-semibold text-soft-white mb-2">Send a Message</h3>

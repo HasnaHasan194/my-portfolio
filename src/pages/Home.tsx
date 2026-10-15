@@ -91,7 +91,7 @@ export default function Home({ initialSection }: HomeProps) {
         id="hero" 
         onMouseMove={handleHeroMouseMove}
         onMouseLeave={handleHeroMouseLeave}
-        className="pt-20 pb-16 md:pt-28 md:pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen flex flex-col justify-center relative"
+        className="pt-20 pb-16 md:pt-28 md:pb-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto min-h-screen flex flex-col justify-center relative"
       >
         
         {/* Kinetic Typography Backdrop */}
@@ -129,10 +129,10 @@ export default function Home({ initialSection }: HomeProps) {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-secondary-text mb-8 border-b border-subtle-borders/50 pb-4 w-full z-10"
+          className="flex flex-wrap items-center justify-between gap-3 sm:gap-4 text-[11px] sm:text-xs font-mono text-secondary-text mb-6 sm:mb-8 border-b border-subtle-borders/50 pb-4 w-full z-10"
         >
-          <div className="flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-fluorescent-lime animate-pulse" />
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <span className="w-2 h-2 rounded-full bg-fluorescent-lime animate-pulse shrink-0" />
             <span className="text-soft-white font-medium uppercase tracking-wider">01 // Full-Stack Software Developer</span>
           </div>
           
@@ -145,31 +145,31 @@ export default function Home({ initialSection }: HomeProps) {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-center z-10">
           
           {/* Left Content */}
-          <div className="lg:col-span-7 flex flex-col items-start">
+          <div className="lg:col-span-7 flex flex-col items-start w-full">
             
             {/* Status Pill */}
             <motion.div 
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex items-center gap-3 bg-secondary-background/80 border border-subtle-borders rounded-full px-4 py-1.5 mb-6 backdrop-blur-sm"
+              className="flex items-center gap-2.5 sm:gap-3 bg-secondary-background/80 border border-subtle-borders rounded-full px-3.5 sm:px-4 py-1.5 mb-5 sm:mb-6 backdrop-blur-sm max-w-full"
             >
-              <div className="w-1.5 h-1.5 rounded-full bg-fluorescent-lime animate-ping" />
-              <span className="text-xs font-mono text-secondary-text uppercase tracking-widest">
+              <div className="w-1.5 h-1.5 rounded-full bg-fluorescent-lime animate-ping shrink-0" />
+              <span className="text-[11px] sm:text-xs font-mono text-secondary-text uppercase tracking-wider sm:tracking-widest truncate">
                 Kerala, India • Available Globally
               </span>
             </motion.div>
             
             {/* Masked Luxury Title with Rotating Word Flip */}
-            <div className="overflow-hidden mb-6">
+            <div className="overflow-hidden mb-6 w-full">
               <motion.h1 
                 initial={{ y: '100%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading leading-[1.1]"
+                className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-heading leading-[1.15] sm:leading-[1.1]"
               >
                 Building Digital Experiences That Solve{' '}
                 <span className="inline-block relative min-h-[1.2em]">
@@ -193,7 +193,7 @@ export default function Home({ initialSection }: HomeProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-soft-white mb-4 max-w-xl leading-relaxed font-light"
+              className="text-base sm:text-lg md:text-xl text-soft-white mb-4 max-w-xl leading-relaxed font-light"
             >
               Hi, I'm <strong className="font-semibold text-fluorescent-lime">Hasna Hasan</strong> — a Full-Stack Developer passionate about building real-world web applications, scalable backend systems, secure authentication, and interactive user experiences.
             </motion.p>
@@ -202,7 +202,7 @@ export default function Home({ initialSection }: HomeProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-base text-secondary-text mb-10 max-w-xl leading-relaxed"
+              className="text-sm sm:text-base text-secondary-text mb-8 sm:mb-10 max-w-xl leading-relaxed"
             >
               From multi-role platforms and payment workflows to real-time applications, I enjoy turning complex requirements into practical digital solutions.
             </motion.p>
@@ -211,11 +211,11 @@ export default function Home({ initialSection }: HomeProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap items-center gap-4"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto"
             >
               <button 
                 onClick={() => scrollTo('projects')}
-                className="group flex items-center gap-2 px-6 py-3 bg-fluorescent-lime text-background font-bold rounded-xl hover:bg-electric-green transition-all shadow-[0_0_15px_rgba(198,255,61,0.3)] hover:shadow-[0_0_20px_rgba(124,255,107,0.5)] cursor-pointer"
+                className="group flex items-center justify-center gap-2 px-6 py-3 bg-fluorescent-lime text-background font-bold rounded-xl hover:bg-electric-green transition-all shadow-[0_0_15px_rgba(198,255,61,0.3)] hover:shadow-[0_0_20px_rgba(124,255,107,0.5)] cursor-pointer text-sm sm:text-base"
               >
                 <span>View My Projects</span>
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -224,7 +224,7 @@ export default function Home({ initialSection }: HomeProps) {
               <a 
                 href="/Hasna_Hasan_Resume.pdf" 
                 download="Hasna_Hasan_Resume.pdf" 
-                className="flex items-center gap-2 px-6 py-3 bg-secondary-background border border-subtle-borders text-soft-white font-medium rounded-xl hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all"
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-secondary-background border border-subtle-borders text-soft-white font-medium rounded-xl hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all text-sm sm:text-base"
               >
                 <Download size={18} />
                 <span>Download Resume</span>
@@ -232,11 +232,11 @@ export default function Home({ initialSection }: HomeProps) {
               
               <button 
                 onClick={() => scrollTo('contact')}
-                className="flex items-center gap-2 px-4 py-3 bg-secondary-background border border-subtle-borders rounded-xl text-secondary-text hover:text-fluorescent-lime hover:border-fluorescent-lime transition-colors cursor-pointer"
+                className="flex items-center justify-center gap-2 px-4 py-3 bg-secondary-background border border-subtle-borders rounded-xl text-secondary-text hover:text-fluorescent-lime hover:border-fluorescent-lime transition-colors cursor-pointer text-sm sm:text-base"
                 title="Get in touch"
               >
                 <Mail size={18} />
-                <span className="text-sm font-medium">Contact Me</span>
+                <span className="font-medium">Contact Me</span>
               </button>
             </motion.div>
           </div>
@@ -251,7 +251,7 @@ export default function Home({ initialSection }: HomeProps) {
                 transform: `rotateX(${heroTilt.rotateX}deg) rotateY(${heroTilt.rotateY}deg)`,
                 transition: 'transform 0.18s ease-out'
               }}
-              className="relative w-full max-w-[360px] md:max-w-[380px] aspect-[4/5] mx-auto group"
+              className="relative w-full max-w-[300px] sm:max-w-[340px] md:max-w-[380px] aspect-[4/5] mx-auto group"
             >
               {/* Vibrant ambient glow aura behind the image */}
               <div className="absolute -inset-3 bg-gradient-to-tr from-fluorescent-lime/25 via-electric-green/15 to-transparent rounded-[38px] blur-2xl -z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-700" />
@@ -281,9 +281,9 @@ export default function Home({ initialSection }: HomeProps) {
                 <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background/85 to-transparent pointer-events-none" />
                 
                 {/* Editorial caption at bottom */}
-                <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between text-xs text-soft-white/90">
+                <div className="absolute bottom-3 left-4 right-4 sm:bottom-4 sm:left-5 sm:right-5 flex items-center justify-between text-xs text-soft-white/90">
                   <span className="font-heading font-semibold tracking-wide">Hasna Hasan</span>
-                  <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-background/80 text-fluorescent-lime border border-subtle-borders">
+                  <span className="text-[10px] sm:text-[11px] font-mono px-2 py-0.5 rounded bg-background/80 text-fluorescent-lime border border-subtle-borders">
                     Full-Stack Dev
                   </span>
                 </div>
@@ -297,9 +297,9 @@ export default function Home({ initialSection }: HomeProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}
-          className="mt-16 md:mt-20 w-full z-10"
+          className="mt-12 sm:mt-16 md:mt-20 w-full z-10"
         >
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
             <div className="flex items-center gap-2 text-xs font-mono text-secondary-text uppercase tracking-wider">
               <span className="w-2 h-2 rounded-full bg-fluorescent-lime animate-ping" />
               <span>Interactive Architecture & Engineering Console</span>

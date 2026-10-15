@@ -66,22 +66,22 @@ export default function Skills({ isSection = false }: SkillsProps) {
   return (
     <section 
       id="skills"
-      className={isSection ? "py-20 md:py-28 px-6 md:px-12 max-w-7xl mx-auto scroll-mt-12 border-t border-subtle-borders/40 relative" : "pt-28 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen relative"}
+      className={isSection ? "py-20 md:py-28 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto scroll-mt-12 border-t border-subtle-borders/40 relative" : "pt-28 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto min-h-screen relative"}
     >
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-2 h-2 rounded-full bg-fluorescent-lime animate-pulse" />
+        <div className="w-2 h-2 rounded-full bg-fluorescent-lime animate-pulse shrink-0" />
         <span className="text-xs font-semibold text-electric-green uppercase tracking-widest">Capabilities & Technologies</span>
       </div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="mb-16 md:mb-24 text-center md:text-left"
+        className="mb-12 sm:mb-16 md:mb-24 text-center md:text-left"
       >
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading mb-4 sm:mb-6">
           Technical <span className="text-fluorescent-lime glow-text">Arsenal.</span>
         </h1>
-        <p className="text-lg text-secondary-text max-w-2xl mx-auto md:mx-0">
+        <p className="text-base sm:text-lg text-secondary-text max-w-2xl mx-auto md:mx-0">
           A comprehensive overview of the technologies, tools, and principles I use to build scalable full-stack applications.
         </p>
       </motion.div>
@@ -90,15 +90,15 @@ export default function Skills({ isSection = false }: SkillsProps) {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
       >
         {skillCategories.map((category, idx) => (
           <motion.div 
             key={idx} 
             variants={itemVariants}
-            className="glass-card p-6 rounded-2xl border-t-2 border-t-transparent hover:border-t-fluorescent-lime transition-all duration-300 group"
+            className="glass-card p-4 sm:p-6 rounded-2xl border-t-2 border-t-transparent hover:border-t-fluorescent-lime transition-all duration-300 group"
           >
-            <h3 className="text-lg font-heading font-semibold text-soft-white mb-6 flex items-center gap-2">
+            <h3 className="text-base sm:text-lg font-heading font-semibold text-soft-white mb-4 sm:mb-6 flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-fluorescent-lime group-hover:animate-ping" />
               {category.title}
             </h3>

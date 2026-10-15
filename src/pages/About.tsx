@@ -28,22 +28,22 @@ export default function About({ isSection = false }: AboutProps) {
   return (
     <section 
       id="about"
-      className={isSection ? "py-20 md:py-28 px-6 md:px-12 max-w-7xl mx-auto scroll-mt-12 border-t border-subtle-borders/40 relative" : "pt-28 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen"}
+      className={isSection ? "py-20 md:py-28 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto scroll-mt-12 border-t border-subtle-borders/40 relative" : "pt-28 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto min-h-screen"}
     >
       <div className="flex items-center gap-3 mb-8">
-        <div className="w-2 h-2 rounded-full bg-fluorescent-lime animate-pulse" />
+        <div className="w-2 h-2 rounded-full bg-fluorescent-lime animate-pulse shrink-0" />
         <span className="text-xs font-semibold text-electric-green uppercase tracking-widest">About Me & Philosophy</span>
       </div>
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 lg:grid-cols-12 gap-12"
+        className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12"
       >
         {/* Left Column: Image & Contact Info */}
         <div className="lg:col-span-4 flex flex-col gap-8">
-          <motion.div variants={itemVariants} className="relative aspect-square w-full max-w-md mx-auto lg:mx-0">
-            <div className="absolute inset-0 border border-fluorescent-lime/20 rounded-2xl transform translate-x-3 translate-y-3 -z-10 glow-border" />
+          <motion.div variants={itemVariants} className="relative aspect-square w-full max-w-xs sm:max-w-md mx-auto lg:mx-0">
+            <div className="absolute inset-0 border border-fluorescent-lime/20 rounded-2xl transform translate-x-2.5 translate-y-2.5 sm:translate-x-3 sm:translate-y-3 -z-10 glow-border" />
             <img 
               src="/portfolioprofile.jpeg" 
               alt="Hasna Hasan" 
@@ -55,32 +55,32 @@ export default function About({ isSection = false }: AboutProps) {
             />
           </motion.div>
 
-          <motion.div variants={itemVariants} className="glass-card p-6 rounded-2xl">
-            <h3 className="text-xl font-heading font-semibold mb-4 text-soft-white border-b border-subtle-borders pb-4">Connect</h3>
-            <div className="flex flex-col gap-4">
-              <a href="mailto:hasnahasnahasan194@gmail.com" className="flex items-center justify-between text-secondary-text hover:text-fluorescent-lime transition-colors group">
-                <span>hasnahasnahasan194@gmail.com</span>
-                <ExternalLink size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+          <motion.div variants={itemVariants} className="glass-card p-5 sm:p-6 rounded-2xl">
+            <h3 className="text-lg sm:text-xl font-heading font-semibold mb-4 text-soft-white border-b border-subtle-borders pb-4">Connect</h3>
+            <div className="flex flex-col gap-3.5 sm:gap-4 text-xs sm:text-sm">
+              <a href="mailto:hasnahasnahasan194@gmail.com" className="flex items-center justify-between text-secondary-text hover:text-fluorescent-lime transition-colors group gap-2">
+                <span className="break-all">hasnahasnahasan194@gmail.com</span>
+                <ExternalLink size={15} className="shrink-0 opacity-70 group-hover:opacity-100 transition-opacity" />
               </a>
               <a href="tel:+919207478990" className="flex items-center justify-between text-secondary-text hover:text-fluorescent-lime transition-colors group">
                 <span>+91 92074 78990</span>
-                <ExternalLink size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ExternalLink size={15} className="opacity-70 group-hover:opacity-100 transition-opacity" />
               </a>
               <a href="https://www.linkedin.com/in/hasna-hasan-6b3951330/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between text-secondary-text hover:text-fluorescent-lime transition-colors group">
                 <span>LinkedIn</span>
-                <ExternalLink size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ExternalLink size={15} className="opacity-70 group-hover:opacity-100 transition-opacity" />
               </a>
               <a href="https://github.com/HasnaHasan194" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between text-secondary-text hover:text-fluorescent-lime transition-colors group">
                 <span>GitHub</span>
-                <ExternalLink size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ExternalLink size={15} className="opacity-70 group-hover:opacity-100 transition-opacity" />
               </a>
               <a href="https://www.instagram.com/hasna._hasan/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between text-secondary-text hover:text-fluorescent-lime transition-colors group">
                 <span>Instagram</span>
-                <ExternalLink size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ExternalLink size={15} className="opacity-70 group-hover:opacity-100 transition-opacity" />
               </a>
             </div>
             <div className="mt-6 pt-6 border-t border-subtle-borders">
-              <a href="/Hasna_Hasan_Resume.pdf" download="Hasna_Hasan_Resume.pdf" className="flex items-center justify-center gap-2 w-full py-3 bg-secondary-background border border-subtle-borders text-soft-white font-medium rounded-lg hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all">
+              <a href="/Hasna_Hasan_Resume.pdf" download="Hasna_Hasan_Resume.pdf" className="flex items-center justify-center gap-2 w-full py-3 bg-secondary-background border border-subtle-borders text-soft-white font-medium rounded-lg hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all text-sm">
                 <Download size={18} />
                 Download Resume
               </a>
@@ -89,14 +89,14 @@ export default function About({ isSection = false }: AboutProps) {
         </div>
 
         {/* Right Column: Content */}
-        <div className="lg:col-span-8 flex flex-col gap-12">
+        <div className="lg:col-span-8 flex flex-col gap-10 md:gap-12">
           <motion.div variants={itemVariants}>
-            <h1 className="text-4xl md:text-5xl font-bold font-heading mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading mb-6 leading-tight">
               Curious Mind.<br />
               Creative Builder.<br />
               <span className="text-fluorescent-lime glow-text">Full-Stack Developer.</span>
             </h1>
-            <p className="text-lg text-secondary-text leading-relaxed">
+            <p className="text-base sm:text-lg text-secondary-text leading-relaxed">
               I'm Hasna Hasan, a Full-Stack Developer with a background in Zoology who transitioned into technology through dedicated learning and hands-on development. My focus is on building practical applications that solve real problems, with an emphasis on clean architecture, secure APIs, meaningful user experiences, and maintainable code.
             </p>
           </motion.div>

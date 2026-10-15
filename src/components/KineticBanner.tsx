@@ -23,8 +23,8 @@ export default function KineticBanner() {
   return (
     <div className="w-full py-12 md:py-16 overflow-hidden relative border-y border-subtle-borders/60 bg-secondary-background/60 backdrop-blur-md select-none">
       {/* Ambient edge shadow masks */}
-      <div className="absolute left-0 top-0 bottom-0 w-28 md:w-52 bg-gradient-to-r from-background to-transparent z-20 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-28 md:w-52 bg-gradient-to-l from-background to-transparent z-20 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-14 sm:w-28 md:w-52 bg-gradient-to-r from-background to-transparent z-20 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-14 sm:w-28 md:w-52 bg-gradient-to-l from-background to-transparent z-20 pointer-events-none" />
 
       {/* Decorative Crosshair Framing */}
       <span className="absolute top-2 left-6 font-mono text-xs text-fluorescent-lime/40 z-10 pointer-events-none">+</span>
@@ -44,7 +44,7 @@ export default function KineticBanner() {
               ease: 'linear',
             },
           }}
-          className="flex items-center gap-8 md:gap-14 shrink-0 font-heading font-black text-2xl md:text-4xl tracking-widest uppercase text-soft-white/90"
+          className="flex items-center gap-6 sm:gap-8 md:gap-14 shrink-0 font-heading font-black text-xl sm:text-2xl md:text-4xl tracking-widest uppercase text-soft-white/90"
         >
           {[...wordsRow1, ...wordsRow1].map((word, idx) => (
             <div key={idx} className="flex items-center gap-8 md:gap-14 group">
@@ -69,7 +69,7 @@ export default function KineticBanner() {
               ease: 'linear',
             },
           }}
-          className="flex items-center gap-8 md:gap-14 shrink-0 font-heading font-black text-xl md:text-3xl tracking-widest uppercase"
+          className="flex items-center gap-6 sm:gap-8 md:gap-14 shrink-0 font-heading font-black text-lg sm:text-xl md:text-3xl tracking-widest uppercase"
         >
           {[...wordsRow2, ...wordsRow2].map((word, idx) => (
             <div key={idx} className="flex items-center gap-8 md:gap-14 group">

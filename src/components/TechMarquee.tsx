@@ -35,12 +35,12 @@ export default function TechMarquee() {
   return (
     <div className="w-full py-10 overflow-hidden relative border-y border-subtle-borders/60 bg-secondary-background/40 backdrop-blur-sm">
       {/* Gradient masks for smooth fade-in and fade-out at edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 md:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 md:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 mb-4 flex items-center justify-between text-xs text-secondary-text uppercase tracking-widest">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-4 flex items-center justify-between text-xs text-secondary-text uppercase tracking-widest">
         <span className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-fluorescent-lime animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-fluorescent-lime animate-pulse shrink-0" />
           Core Engineering Tech Stack
         </span>
         <span className="hidden sm:inline text-secondary-text/70">Continuous Architecture & Delivery</span>

@@ -74,18 +74,18 @@ Ready for full-stack impact. Let's build together!`;
       <div className="absolute top-0 right-1/4 w-40 h-40 bg-fluorescent-lime/10 rounded-full blur-[70px] pointer-events-none" />
 
       {/* Terminal Title Bar */}
-      <div className="bg-secondary-background/90 px-4 py-3 border-b border-subtle-borders flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1.5 mr-2">
-            <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
-            <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block" />
-            <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
+      <div className="bg-secondary-background/90 px-3 sm:px-4 py-2.5 sm:py-3 border-b border-subtle-borders flex items-center justify-between gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+          <div className="flex items-center gap-1.5 mr-1 sm:mr-2 shrink-0">
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80 inline-block" />
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80 inline-block" />
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500/80 inline-block" />
           </div>
           
-          <div className="flex items-center gap-1 overflow-x-auto scrollbar-none">
+          <div className="flex items-center gap-1 overflow-x-auto scrollbar-none py-0.5">
             <button
               onClick={() => setActiveTab('system')}
-              className={`flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded-md transition-colors shrink-0 ${
+              className={`flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-xs font-mono px-2 sm:px-2.5 py-1 rounded-md transition-colors shrink-0 cursor-pointer ${
                 activeTab === 'system'
                   ? 'bg-card-background text-fluorescent-lime border border-fluorescent-lime/30'
                   : 'text-secondary-text hover:text-soft-white'
@@ -96,7 +96,7 @@ Ready for full-stack impact. Let's build together!`;
             </button>
             <button
               onClick={() => setActiveTab('architecture')}
-              className={`flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded-md transition-colors shrink-0 ${
+              className={`flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-xs font-mono px-2 sm:px-2.5 py-1 rounded-md transition-colors shrink-0 cursor-pointer ${
                 activeTab === 'architecture'
                   ? 'bg-card-background text-fluorescent-lime border border-fluorescent-lime/30'
                   : 'text-secondary-text hover:text-soft-white'
@@ -107,7 +107,7 @@ Ready for full-stack impact. Let's build together!`;
             </button>
             <button
               onClick={() => setActiveTab('status')}
-              className={`flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded-md transition-colors shrink-0 ${
+              className={`flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-xs font-mono px-2 sm:px-2.5 py-1 rounded-md transition-colors shrink-0 cursor-pointer ${
                 activeTab === 'status'
                   ? 'bg-card-background text-fluorescent-lime border border-fluorescent-lime/30'
                   : 'text-secondary-text hover:text-soft-white'
@@ -119,14 +119,14 @@ Ready for full-stack impact. Let's build together!`;
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <span className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-500/20">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             LIVE
           </span>
           <button
             onClick={() => handleCopy(getCurrentText())}
-            className="text-secondary-text hover:text-fluorescent-lime transition-colors p-1"
+            className="text-secondary-text hover:text-fluorescent-lime transition-colors p-1 cursor-pointer"
             title="Copy code"
           >
             {copied ? <Check size={14} className="text-fluorescent-lime" /> : <Copy size={14} />}
@@ -135,7 +135,7 @@ Ready for full-stack impact. Let's build together!`;
       </div>
 
       {/* Code Editor Content */}
-      <div className="p-4 md:p-5 font-mono text-xs md:text-sm bg-background/90 overflow-x-auto min-h-[220px] max-h-[300px]">
+      <div className="p-3.5 sm:p-4 md:p-5 font-mono text-[11px] sm:text-xs md:text-sm bg-background/90 overflow-x-auto min-h-[220px] max-h-[300px]">
         <AnimatePresence mode="wait">
           {activeTab === 'system' && (
             <motion.div

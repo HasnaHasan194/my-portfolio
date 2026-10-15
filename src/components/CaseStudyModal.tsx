@@ -47,7 +47,7 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-6 md:p-8">
         {/* Darkened backdrop blur */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -63,10 +63,10 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.92, y: 20 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-5xl max-h-[92vh] bg-secondary-background border border-subtle-borders rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.95)] z-10 flex flex-col"
+          className="relative w-full max-w-5xl max-h-[92vh] bg-secondary-background border border-subtle-borders rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.95)] z-10 flex flex-col"
         >
           {/* Top Bar with Case Study HUD & Close Button */}
-          <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-subtle-borders bg-background/95">
+          <div className="flex items-center justify-between px-3.5 sm:px-6 py-3 sm:py-4 border-b border-subtle-borders bg-background/95">
             <div className="flex items-center gap-2 sm:gap-3 min-w-0">
               <span className="w-2.5 h-2.5 rounded-full bg-fluorescent-lime animate-ping shrink-0" />
               <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-electric-green truncate">
@@ -95,10 +95,10 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
           </div>
 
           {/* Modal Scrollable Body */}
-          <div className="overflow-y-auto flex-1 p-6 md:p-8 space-y-8">
+          <div className="overflow-y-auto flex-1 p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8">
             
             {/* CINEMATIC APERTURE OPENING ANIMATION WITH IMAGE */}
-            <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden glass-card border border-subtle-borders/80 group">
+            <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] rounded-xl sm:rounded-2xl overflow-hidden glass-card border border-subtle-borders/80 group">
               
               {/* Corner crosshair telemetry brackets */}
               <span className="absolute top-3 left-3 font-mono text-xs text-fluorescent-lime z-40 pointer-events-none">+</span>
@@ -183,23 +183,23 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
             </div>
 
             {/* Title & Short Summary */}
-            <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-subtle-borders">
+            <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 sm:gap-6 pb-6 border-b border-subtle-borders">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold font-heading text-soft-white mb-2">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-soft-white mb-2">
                   {project.name}<span className="text-fluorescent-lime">.</span>
                 </h2>
-                <p className="text-secondary-text max-w-2xl text-base leading-relaxed">
+                <p className="text-secondary-text max-w-2xl text-sm sm:text-base leading-relaxed">
                   {project.shortDescription}
                 </p>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 shrink-0 w-full sm:w-auto">
                 <a
                   href={project.liveDemo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-fluorescent-lime text-background font-bold text-xs uppercase tracking-wider hover:bg-electric-green transition-all shadow-[0_0_15px_rgba(198,255,61,0.3)]"
+                  className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-fluorescent-lime text-background font-bold text-xs uppercase tracking-wider hover:bg-electric-green transition-all shadow-[0_0_15px_rgba(198,255,61,0.3)]"
                 >
                   <ExternalLink size={14} />
                   <span>Live Demo</span>
@@ -209,7 +209,7 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-card-background border border-subtle-borders text-soft-white text-xs font-mono hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all"
+                  className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-card-background border border-subtle-borders text-soft-white text-xs font-mono hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all"
                 >
                   <FaGithub size={14} />
                   <span>GitHub</span>

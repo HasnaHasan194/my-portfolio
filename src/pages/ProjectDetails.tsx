@@ -44,9 +44,9 @@ export default function ProjectDetails() {
   }
 
   return (
-    <div className="pt-8 pb-16 md:pt-12 md:pb-24 px-6 md:px-12 max-w-5xl mx-auto min-h-screen">
+    <div className="pt-8 pb-16 md:pt-12 md:pb-24 px-4 sm:px-6 md:px-12 max-w-5xl mx-auto min-h-screen">
       {/* Top Navigation Bar */}
-      <div className="flex items-center justify-between pb-8 mb-8 border-b border-subtle-borders">
+      <div className="flex items-center justify-between pb-6 sm:pb-8 mb-8 border-b border-subtle-borders">
         <Link to="/" className="text-2xl font-heading font-bold tracking-tighter group flex items-center">
           <span className="text-soft-white group-hover:text-fluorescent-lime transition-colors">H</span>
           <span className="text-fluorescent-lime group-hover:text-soft-white transition-colors">H</span>
@@ -55,7 +55,7 @@ export default function ProjectDetails() {
         
         <Link 
           to="/#projects" 
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-secondary-background border border-subtle-borders text-soft-white hover:text-fluorescent-lime hover:border-fluorescent-lime transition-all text-sm font-medium"
+          className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-lg bg-secondary-background border border-subtle-borders text-soft-white hover:text-fluorescent-lime hover:border-fluorescent-lime transition-all text-xs sm:text-sm font-medium"
         >
           <ArrowLeft size={16} /> Back to Portfolio
         </Link>
@@ -66,10 +66,10 @@ export default function ProjectDetails() {
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="mb-14"
+        className="mb-10 sm:mb-14"
       >
         <div className="flex items-center gap-2 font-mono text-xs text-electric-green mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-fluorescent-lime animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-fluorescent-lime animate-pulse shrink-0" />
           <span className="uppercase tracking-widest">Case Study // {project.category}</span>
         </div>
 
@@ -79,18 +79,18 @@ export default function ProjectDetails() {
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-soft-white"
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading text-soft-white"
           >
             {project.name}<span className="text-fluorescent-lime">.</span>
           </motion.h1>
         </div>
 
-        <p className="text-lg md:text-xl text-secondary-text max-w-3xl mb-8 leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl text-secondary-text max-w-3xl mb-8 leading-relaxed">
           {project.shortDescription}
         </p>
 
         {/* Quick Spec Pills */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-2xl mb-8 font-mono text-xs">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 max-w-2xl mb-8 font-mono text-xs">
           <div className="p-3 rounded-xl bg-secondary-background/80 border border-subtle-borders">
             <span className="text-secondary-text block text-[10px] uppercase">Pattern</span>
             <span className="text-fluorescent-lime font-medium">Clean & Decoupled</span>
@@ -105,24 +105,24 @@ export default function ProjectDetails() {
           </div>
         </div>
         
-        <div className="flex flex-wrap gap-2 mb-10">
+        <div className="flex flex-wrap gap-2 mb-8 sm:mb-10">
           {project.technologies.map((tech, i) => (
             <motion.span 
               key={i} 
               whileHover={{ y: -2, scale: 1.05 }}
-              className="px-3 py-1 bg-secondary-background border border-subtle-borders rounded-full text-xs font-mono font-medium text-soft-white hover:border-fluorescent-lime transition-colors"
+              className="px-2.5 sm:px-3 py-1 bg-secondary-background border border-subtle-borders rounded-full text-[11px] sm:text-xs font-mono font-medium text-soft-white hover:border-fluorescent-lime transition-colors"
             >
               {tech}
             </motion.span>
           ))}
         </div>
         
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
           <a 
             href={project.liveDemo} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-3 bg-fluorescent-lime text-background font-bold rounded-xl hover:bg-electric-green transition-all shadow-[0_0_15px_rgba(198,255,61,0.25)] hover:shadow-[0_0_25px_rgba(124,255,107,0.5)]"
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-fluorescent-lime text-background font-bold rounded-xl hover:bg-electric-green transition-all shadow-[0_0_15px_rgba(198,255,61,0.25)] hover:shadow-[0_0_25px_rgba(124,255,107,0.5)] text-sm sm:text-base"
           >
             <ExternalLink size={18} /> Live Demo
           </a>
@@ -130,7 +130,7 @@ export default function ProjectDetails() {
             href={project.github} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-3 bg-secondary-background border border-subtle-borders text-soft-white font-medium rounded-xl hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all"
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-secondary-background border border-subtle-borders text-soft-white font-medium rounded-xl hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all text-sm sm:text-base"
           >
             <FaGithub size={18} /> GitHub Repository
           </a>
@@ -138,7 +138,7 @@ export default function ProjectDetails() {
       </motion.div>
       
       {/* Cinematic Case Study Hero Visual with Opening Aperture Shutters & Light Sweep */}
-      <div className="w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden glass-card mb-20 relative group shadow-[0_0_60px_rgba(0,0,0,0.85)] border border-subtle-borders/80 hover:border-fluorescent-lime/40 transition-colors">
+      <div className="w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] rounded-2xl sm:rounded-3xl overflow-hidden glass-card mb-16 sm:mb-20 relative group shadow-[0_0_60px_rgba(0,0,0,0.85)] border border-subtle-borders/80 hover:border-fluorescent-lime/40 transition-colors">
         {/* Architectural Framing Crosshairs */}
         <span className="absolute top-3 left-3 font-mono text-xs text-fluorescent-lime z-40 pointer-events-none">+</span>
         <span className="absolute top-3 right-3 font-mono text-xs text-fluorescent-lime z-40 pointer-events-none">+</span>

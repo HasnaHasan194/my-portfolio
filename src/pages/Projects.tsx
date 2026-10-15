@@ -61,21 +61,21 @@ export default function Projects({
   return (
     <section 
       id="projects"
-      className={isSection ? "py-20 md:py-28 px-6 md:px-12 max-w-7xl mx-auto scroll-mt-12 border-t border-subtle-borders/40 relative overflow-hidden" : "pt-28 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen relative overflow-hidden"}
+      className={isSection ? "py-20 md:py-28 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto scroll-mt-12 border-t border-subtle-borders/40 relative overflow-hidden" : "pt-28 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto min-h-screen relative overflow-hidden"}
     >
       {/* Background ambient decorative light */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-fluorescent-lime/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       {/* Header Badge */}
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-2 h-2 rounded-full bg-fluorescent-lime animate-pulse" />
+        <div className="w-2 h-2 rounded-full bg-fluorescent-lime animate-pulse shrink-0" />
         <span className="text-xs font-mono font-semibold text-electric-green uppercase tracking-widest">
           04 // Featured Portfolio Works
         </span>
       </div>
 
       {/* Header Title with Pheeqoh Mask Reveal */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12 md:mb-16">
         <div>
           <div className="overflow-hidden mb-4">
             <motion.h1 
@@ -83,12 +83,12 @@ export default function Projects({
               whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading"
+              className="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading"
             >
               Selected <span className="text-fluorescent-lime glow-text">Works.</span>
             </motion.h1>
           </div>
-          <p className="text-base md:text-lg text-secondary-text max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-lg text-secondary-text max-w-2xl leading-relaxed">
             A showcase of full-stack applications, scalable systems, and interactive experiences engineered with Clean Architecture and modern technologies.
           </p>
         </div>
@@ -98,29 +98,29 @@ export default function Projects({
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="flex items-center gap-4 bg-secondary-background/80 border border-subtle-borders rounded-2xl px-5 py-3 backdrop-blur-sm self-start md:self-auto"
+          className="flex items-center gap-3 sm:gap-4 bg-secondary-background/80 border border-subtle-borders rounded-2xl px-4 sm:px-5 py-2.5 sm:py-3 backdrop-blur-sm self-stretch sm:self-start md:self-auto"
         >
           <div className="flex flex-col">
-            <span className="text-xs font-mono text-secondary-text uppercase">Production Apps</span>
-            <span className="text-lg font-bold font-heading text-fluorescent-lime">4 Architectures</span>
+            <span className="text-[11px] sm:text-xs font-mono text-secondary-text uppercase">Production Apps</span>
+            <span className="text-base sm:text-lg font-bold font-heading text-fluorescent-lime">4 Architectures</span>
           </div>
           <div className="w-[1px] h-8 bg-subtle-borders" />
           <div className="flex flex-col">
-            <span className="text-xs font-mono text-secondary-text uppercase">Deployments</span>
-            <span className="text-lg font-bold font-heading text-electric-green">AWS EC2 & Vercel</span>
+            <span className="text-[11px] sm:text-xs font-mono text-secondary-text uppercase">Deployments</span>
+            <span className="text-base sm:text-lg font-bold font-heading text-electric-green">AWS EC2 & Vercel</span>
           </div>
         </motion.div>
       </div>
 
       {/* Interactive Category Filter Tabs with Animated Sliding Pill */}
-      <div className="flex flex-wrap items-center gap-2 mb-14 border-b border-subtle-borders/60 pb-6">
+      <div className="flex items-center gap-2 mb-10 sm:mb-14 border-b border-subtle-borders/60 pb-4 sm:pb-6 overflow-x-auto scrollbar-none whitespace-nowrap">
         {filterTabs.map((tab) => {
           const isActive = activeFilter === tab.id;
           return (
             <button
               key={tab.id}
               onClick={() => setActiveFilter(tab.id)}
-              className={`relative px-4 py-2 rounded-xl text-xs md:text-sm font-mono transition-all duration-300 flex items-center gap-2 cursor-pointer ${
+              className={`relative px-3.5 sm:px-4 py-2 rounded-xl text-xs md:text-sm font-mono transition-all duration-300 flex items-center gap-2 cursor-pointer shrink-0 ${
                 isActive
                   ? 'text-background font-bold'
                   : 'text-secondary-text hover:text-soft-white hover:bg-secondary-background/60'
@@ -205,7 +205,7 @@ function ProjectCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 lg:gap-14 items-center group glass-card p-6 md:p-8 rounded-3xl border border-subtle-borders/80 hover:border-fluorescent-lime/40 transition-colors duration-500 overflow-hidden`}
+      className={`relative flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-6 sm:gap-8 lg:gap-14 items-center group glass-card p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border border-subtle-borders/80 hover:border-fluorescent-lime/40 transition-colors duration-500 overflow-hidden`}
     >
       {/* Luxury Interactive Mouse Spotlight Glow */}
       <div
@@ -284,7 +284,7 @@ function ProjectCard({
         {/* Project Title with Interactive Hover Glow */}
         <h2 
           onClick={() => onOpenModal(project)}
-          className="text-3xl md:text-4xl font-bold font-heading mb-4 text-soft-white group-hover:text-fluorescent-lime transition-colors duration-300 cursor-pointer"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading mb-3 sm:mb-4 text-soft-white group-hover:text-fluorescent-lime transition-colors duration-300 cursor-pointer"
         >
           <span className="hover:underline decoration-fluorescent-lime/40 underline-offset-8">
             {project.name}
@@ -292,34 +292,34 @@ function ProjectCard({
         </h2>
 
         {/* Short Description */}
-        <p className="text-secondary-text mb-6 leading-relaxed text-base md:text-lg">
+        <p className="text-secondary-text mb-5 sm:mb-6 leading-relaxed text-sm sm:text-base md:text-lg">
           {project.shortDescription}
         </p>
 
         {/* Technology Pills with Micro-Animations */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
           {project.technologies.slice(0, 6).map((tech, i) => (
             <motion.span 
               key={i}
               whileHover={{ y: -2, scale: 1.05 }}
               transition={{ duration: 0.15 }}
-              className="px-3 py-1 bg-secondary-background border border-subtle-borders rounded-full text-xs font-mono font-medium text-soft-white/90 hover:border-fluorescent-lime hover:text-fluorescent-lime transition-colors cursor-default"
+              className="px-2.5 sm:px-3 py-1 bg-secondary-background border border-subtle-borders rounded-full text-[11px] sm:text-xs font-mono font-medium text-soft-white/90 hover:border-fluorescent-lime hover:text-fluorescent-lime transition-colors cursor-default"
             >
               {tech}
             </motion.span>
           ))}
           {project.technologies.length > 6 && (
-            <span className="px-3 py-1 bg-secondary-background/60 border border-subtle-borders/60 rounded-full text-xs font-mono text-secondary-text">
+            <span className="px-2.5 sm:px-3 py-1 bg-secondary-background/60 border border-subtle-borders/60 rounded-full text-[11px] sm:text-xs font-mono text-secondary-text">
               +{project.technologies.length - 6} more
             </span>
           )}
         </div>
 
         {/* Action Buttons with Dynamic Hover Effects */}
-        <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-auto w-full pt-4 border-t border-subtle-borders/40">
+        <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 mt-auto w-full pt-4 border-t border-subtle-borders/40">
           <button 
             onClick={() => onOpenModal(project)}
-            className="group/btn flex items-center gap-2 px-5 sm:px-6 py-3 bg-fluorescent-lime text-background font-bold text-sm rounded-xl hover:bg-electric-green transition-all shadow-[0_0_15px_rgba(198,255,61,0.25)] hover:shadow-[0_0_25px_rgba(124,255,107,0.5)] cursor-pointer"
+            className="group/btn flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-fluorescent-lime text-background font-bold text-xs sm:text-sm rounded-xl hover:bg-electric-green transition-all shadow-[0_0_15px_rgba(198,255,61,0.25)] hover:shadow-[0_0_25px_rgba(124,255,107,0.5)] cursor-pointer"
           >
             <span>View Details</span>
             <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform duration-200" />
@@ -327,7 +327,7 @@ function ProjectCard({
 
           <Link
             to={`/projects/${project.id}`}
-            className="flex items-center gap-1.5 px-3 py-3 bg-secondary-background/80 border border-subtle-borders text-secondary-text hover:text-fluorescent-lime hover:border-fluorescent-lime rounded-xl text-xs font-mono transition-all"
+            className="flex items-center justify-center gap-1.5 px-3 py-2.5 sm:py-3 bg-secondary-background/80 border border-subtle-borders text-secondary-text hover:text-fluorescent-lime hover:border-fluorescent-lime rounded-xl text-xs font-mono transition-all"
             title="Open dedicated case study page"
           >
             <span>Full Page</span>
@@ -338,9 +338,9 @@ function ProjectCard({
             href={project.liveDemo} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-3 bg-secondary-background border border-subtle-borders text-soft-white font-medium text-sm rounded-xl hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all"
+            className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 sm:py-3 bg-secondary-background border border-subtle-borders text-soft-white font-medium text-xs sm:text-sm rounded-xl hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all"
           >
-            <ExternalLink size={16} />
+            <ExternalLink size={15} />
             <span>Demo</span>
           </a>
 
@@ -348,9 +348,9 @@ function ProjectCard({
             href={project.github} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-3 bg-secondary-background border border-subtle-borders text-soft-white font-medium text-sm rounded-xl hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all"
+            className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 sm:py-3 bg-secondary-background border border-subtle-borders text-soft-white font-medium text-xs sm:text-sm rounded-xl hover:border-fluorescent-lime hover:text-fluorescent-lime transition-all"
           >
-            <FaGithub size={16} />
+            <FaGithub size={15} />
             <span>Code</span>
           </a>
         </div>

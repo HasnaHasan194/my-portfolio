@@ -8,6 +8,9 @@ export function ArchitectureDiagram({ projectId }: DiagramProps) {
   if (projectId === 'carevoyage') {
     return (
       <div className="w-full bg-secondary-background border border-subtle-borders rounded-2xl p-4 md:p-8 overflow-x-auto relative">
+        <div className="text-[10px] font-mono text-secondary-text mb-2 sm:hidden flex items-center justify-end gap-1">
+          <span>← Swipe to explore architecture →</span>
+        </div>
         <div className="min-w-[700px] flex flex-col gap-10 py-6 items-center">
           {/* Frontend Layer */}
           <div className="flex gap-8 items-center z-10 w-full justify-center">
@@ -79,6 +82,9 @@ export function ArchitectureDiagram({ projectId }: DiagramProps) {
   if (projectId === 'readhaven') {
     return (
       <div className="w-full bg-secondary-background border border-subtle-borders rounded-2xl p-4 md:p-8 overflow-x-auto relative">
+        <div className="text-[10px] font-mono text-secondary-text mb-2 sm:hidden flex items-center justify-end gap-1">
+          <span>← Swipe to explore architecture →</span>
+        </div>
         <div className="min-w-[600px] flex flex-col gap-10 py-6 items-center">
           <div className="flex gap-8 items-center z-10 w-full justify-center">
              <div className="glass-card p-4 rounded-xl border border-fluorescent-lime/30 flex flex-col items-center min-w-[140px] relative">
@@ -151,7 +157,10 @@ export function ArchitectureDiagram({ projectId }: DiagramProps) {
 
 export function WorkflowDiagram({ steps }: { steps: string[] }) {
   return (
-    <div className="w-full bg-secondary-background border border-subtle-borders rounded-2xl p-6 md:p-10 overflow-x-auto">
+    <div className="w-full bg-secondary-background border border-subtle-borders rounded-2xl p-4 sm:p-6 md:p-10 overflow-x-auto">
+      <div className="text-[10px] font-mono text-secondary-text mb-2 sm:hidden flex items-center justify-end gap-1">
+        <span>← Swipe to explore pipeline →</span>
+      </div>
       <div className="min-w-[600px] flex items-center justify-between relative py-4">
         {/* Connecting line behind */}
         <div className="absolute top-1/2 left-0 right-0 h-1 bg-subtle-borders -translate-y-1/2 z-0" />
